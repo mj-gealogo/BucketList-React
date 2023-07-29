@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Header from "./Header";
 import Image from "./Image";
 
-const Activity = () => {
+const Activities = () => {
     const { pid } = useParams();
     const { cid } = useParams();
     const [errorFlag, setErrorFlag] = useState(false);
@@ -39,7 +39,7 @@ const Activity = () => {
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-4">
-                                <Image id={activity.aid} type={'activity'}></Image>
+                                <Image id={activity.id} type={'activity'}></Image>
                             </div>
                             <div className="col-md-8">
                                 <h4 className="card-title">{activity.name}</h4>
@@ -54,4 +54,4 @@ const Activity = () => {
     );
 };
 
-export default Activity;
+export default Activities;

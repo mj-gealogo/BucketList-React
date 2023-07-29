@@ -3,8 +3,10 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Home from "./components/Home";
+import Countries from "./components/Countries";
+import Activities from "./components/Activities";
+import Places from "./components/Places";
 import Country from "./components/Country";
-import Activity from "./components/Activity";
 import Place from "./components/Place";
 
 function App() {
@@ -15,9 +17,11 @@ function App() {
             <Routes>
               <Route path="*" element={<NotFound/>}/>
               <Route path="/" element={<Home/>}/>
-                <Route path="/countries" element={<Country/>}/>
-                <Route path="/countries/:cid/places/" element={<Place/>}/>
-                <Route path="/countries/:cid/places/:pid/activities" element={<Activity/>}/>
+                <Route path="/countries" element={<Countries/>}/>
+                <Route path="/countries/:cid/places/" element={<Places/>}/>
+                <Route path="/countries/:cid/places/:pid/activities" element={<Activities/>}/>
+                <Route path="/countries/:cid" element={<Country/>}/>
+                <Route path="/countries/:cid/places/:pid" element={<Place/>}/>
             </Routes>
           </div>
         </Router>

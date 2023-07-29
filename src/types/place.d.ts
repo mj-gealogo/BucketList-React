@@ -2,7 +2,7 @@ type Place = {
     /**
      * Place id as defined by the database
      */
-    pid: number,
+    id: number,
 
     /**
      * Place name as entered when created

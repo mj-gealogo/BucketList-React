@@ -2,7 +2,7 @@ type Activity = {
     /**
      * Activity id as defined by the database
      */
-    aid: number,
+    id: number,
 
     /**
      * Activity name as entered when created

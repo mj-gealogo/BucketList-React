@@ -2,7 +2,7 @@ type Country = {
     /**
      * Country id as defined by the database
      */
-    cid: number,
+    id: number,
 
     /**
      * Country name as entered when created
