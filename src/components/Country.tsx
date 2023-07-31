@@ -3,13 +3,14 @@ import axios from "axios";
 import BASE_URL from "./BaseUrl";
 import Header from "./Header";
 import Image from "./Image";
-import {Link, useLocation, useParams} from "react-router-dom";
+import { useParams} from "react-router-dom";
+import ImageBanner from "./ImageBanner";
 
 const Country = () => {
     const { cid } = useParams();
     const [errorFlag, setErrorFlag] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-    const [country, setCountry] = React.useState<Country>();
+    const [country, setCountry] = React.useState<Country>({description: "", id: 0, name: "hi"});
     const [places, setPlaces] = React.useState<Array<Place>>([]);
 
     useEffect(() => {
@@ -50,10 +51,14 @@ const Country = () => {
     return (
         <div>
             <Header />
-            <div className="container mt-4">
-                <div className="row">
-                    <h1>{country?.name}</h1>
+            <div className="position-relative">
+                <div className="position-absolute bottom-0 p-3 align-items justify-content-center">
+                    <h1 className="text-light">{country.name}</h1>
+                    <p className="text-light">{country.description}</p>
                 </div>
+                <ImageBanner id={cid ? parseInt(cid, 10) : -1} type={'country'}></ImageBanner>
+            </div>
+            <div className="container mt-4">
                 <div className="row">
                     {places.map((place: Place, index) => (
                         <div key={place.id} className="col-md-4 mb-4">
