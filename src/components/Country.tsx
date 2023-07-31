@@ -10,7 +10,7 @@ const Country = () => {
     const { cid } = useParams();
     const [errorFlag, setErrorFlag] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-    const [country, setCountry] = React.useState<Country>({description: "", id: 0, name: "hi"});
+    const [country, setCountry] = React.useState<Country>({description: "", id: 0, name: ""});
     const [places, setPlaces] = React.useState<Array<Place>>([]);
 
     useEffect(() => {
@@ -52,11 +52,15 @@ const Country = () => {
         <div>
             <Header />
             <div className="position-relative">
-                <div className="position-absolute bottom-0 p-3 align-items justify-content-center">
+                <div className="position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
                     <h1 className="text-light">{country.name}</h1>
-                    <p className="text-light">{country.description}</p>
                 </div>
                 <ImageBanner id={cid ? parseInt(cid, 10) : -1} type={'country'}></ImageBanner>
+            </div>
+
+            <div className="row text-center p-2">
+                <h2>About:</h2>
+                <p className="">{country.description}</p>
             </div>
             <div className="container mt-4">
                 <div className="row">

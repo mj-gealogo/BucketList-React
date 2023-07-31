@@ -31,10 +31,9 @@ const ImageBanner = (props: any) => {
         <img
             src={imageUrl}
             onError={handleImageError}
-            className="img-fluid w-100"
+            className="img-fluid w-100 z-n1"
             style={{ objectFit: 'cover',
                 objectPosition: 'center',
-            zIndex: -1,
             height: '70vh'}}
             alt="Film Image"
         />
