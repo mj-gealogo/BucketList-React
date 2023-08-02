@@ -23,4 +23,13 @@ type Activity = {
      * place name of place
      */
     place: string
+
+    /**
+     * Country id
+     */
+    cid: number
+    /**
+     * Place id
+     */
+    pid: number
 }

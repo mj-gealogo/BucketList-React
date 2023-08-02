@@ -23,13 +23,11 @@ const Header = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/places">Places</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/activities">Activities</Link>
+                        </li>
                     </ul>
                 </div>
-
-                <form className="form-inline mr-auto">
-                    <input className="form-control" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </nav>
     );

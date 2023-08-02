@@ -18,4 +18,8 @@ type Place = {
      * Country name of place
      */
     country: string
+    /**
+     * Country id
+     */
+    cid: number
 }

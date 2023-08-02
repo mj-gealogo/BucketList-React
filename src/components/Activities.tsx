@@ -5,20 +5,20 @@ import Header from "./Header";
 import Image from "./Image";
 import {Link} from "react-router-dom";
 
-const Places = () => {
+const Activities = () => {
     const [errorFlag, setErrorFlag] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-    const [places, setPlaces] = React.useState<Array<Place>>([]);
+    const [activities, setActivities] = React.useState<Array<Activity>>([]);
 
     useEffect(() => {
-        getPlaces();
+        getActivities();
     }, []);
 
-    const getPlaces = () => {
-        axios.get(BASE_URL + '/places')
+    const getActivities = () => {
+        axios.get(BASE_URL + '/activities')
             .then((response) => {
                 setErrorFlag(false);
-                setPlaces(response.data);
+                setActivities(response.data);
             }, (error) => {
                 setErrorFlag(true);
                 if (error.response.status === 500) {
@@ -41,7 +41,7 @@ const Places = () => {
         <div>
             <Header />
             <div className="container mt-4">
-                <h1>All Places</h1>
+                <h1>All Activities</h1>
                 <hr/>
                 <div className="row">
                     <div className="col-md-6 offset-md-3">
@@ -73,14 +73,14 @@ const Places = () => {
                 </div>
 
                 <div className="row">
-                    {places.map((place: Place, index) => (
-                        <div key={place.id} className="col-md-4 mb-4">
+                    {activities.map((activity: Activity, index) => (
+                        <div key={activity.id} className="col-md-4 mb-4">
                             <div className="card h-100">
-                                <Image id={place.id} type={'place'} />
+                                <Image id={activity.id} type={'activity'} />
                                 <div className="card-body">
-                                    <h4 className="card-title">{place.name}</h4>
-                                    <div className="card-text">{truncateDescription(place.description)}</div>
-                                    <Link to={"/countries/" + place.cid + "/places/" + place.id} className="btn btn-outline-primary mt-3">View Place</Link>
+                                    <h4 className="card-title">{activity.name}</h4>
+                                    <div className="card-text">{truncateDescription(activity.description)}</div>
+                                    <Link to={"/countries/" + activity.cid + "/places/" + activity.pid + "/activities/" + activity.id} className="btn btn-outline-primary mt-3">View Activity</Link>
                                 </div>
                             </div>
                         </div>
@@ -91,4 +91,4 @@ const Places = () => {
     );
 };
 
-export default Places;
+export default Activities;

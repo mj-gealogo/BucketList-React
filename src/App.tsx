@@ -8,6 +8,8 @@ import CountryPlaces from "./components/CountryPlaces";
 import Country from "./components/Country";
 import Place from "./components/Place";
 import Places from "./components/Places";
+import Activities from "./components/Activities";
+import Activity from "./components/Activity";
 
 function App() {
   return (
@@ -17,11 +19,13 @@ function App() {
             <Routes>
               <Route path="*" element={<NotFound/>}/>
               <Route path="/" element={<Home/>}/>
-                <Route path="/countries" element={<Countries/>}/>
-                <Route path="/countries/:cid/places/" element={<CountryPlaces/>}/>
-                <Route path="/countries/:cid" element={<Country/>}/>
-                <Route path="/places/:pid" element={<Place/>}/>
-                <Route path="/places" element={<Places/>}/>
+              <Route path="/countries" element={<Countries/>}/>
+              <Route path="/countries/:cid/places/" element={<CountryPlaces/>}/>
+              <Route path="/countries/:cid" element={<Country/>}/>
+              <Route path="/countries/:cid/places/:pid" element={<Place/>}/>
+              <Route path="/places" element={<Places/>}/>
+              <Route path="/activities" element={<Activities/>}/>
+              <Route path="/countries/:cid/places/:pid/activities/:aid" element={<Activity/>}/>
             </Routes>
           </div>
         </Router>
